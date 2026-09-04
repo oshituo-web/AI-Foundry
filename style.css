@@ -21,6 +21,7 @@ body {
     flex-direction: column;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
 }
 main {
     flex: 1;
@@ -38,7 +39,7 @@ main {
     --color-text-light: #6b746f;
     --color-border: #e5e1dc;
 
-    --font-primary: Arial, sans-serif;
+    --font-primary: 'Inter', Arial, sans-serif;
 
     --container-width: 1120px;
 
@@ -1128,11 +1129,6 @@ main {
    RESPONSIVE DESIGN MOBILE
    ========================= */
 
-   /* =========================
-   RESPONSIVE DESIGN
-   MOBILE
-   ========================= */
-
 @media (max-width: 768px) {
 
     /* =========================
@@ -1231,15 +1227,14 @@ main {
        ========================= */
 
     .trusted-brands {
-        padding: 20px 0;
+        padding: 10px 0;
     }
 
     .trusted-brands_list {
         display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
+        justify-content: space-between;
         align-items: center;
-        gap: 20px 30px;
+        gap: 10px;
         padding: 0;
     }
 
