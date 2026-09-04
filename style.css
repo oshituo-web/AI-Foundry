@@ -187,7 +187,7 @@ main {
     .nav-menu_link {
         font-size: 15px;
         font-weight: 600;
-        color: var(--dark-text);
+        color: var(--color-text-dark);
         transition: color 0.2s ease;
     }
     
@@ -262,7 +262,7 @@ main {
 
      .hero_form input {
         flex: 1;
-        min-width: none;
+        min-width: 0;
         padding: 11px 14px;
         border: 0;
         outline: 0;
@@ -357,8 +357,7 @@ main {
         padding: 40px;
         text-align: center;
         border-radius: 5px;
-        transition: transform 0.3s ease,
-        box-shadow 0.3s ease;
+        transition: transform 0.3s ease;
         display: flex;
         gap: 10px;
         flex-direction: column;
@@ -677,7 +676,7 @@ main {
     }
     #testimonials-title {
         margin: 0;
-        font-size: clam(32px, 4vw, 42px);
+        font-size: clamp(32px, 4vw, 42px);
         line-height: 1.05;
         letter-spacing: 0.035em;
         color: var(--color-primary-green);
@@ -983,6 +982,9 @@ main {
 
 
 
+
+
+
 /* ==============================
     RESPONSIVE DESIGN  TABLET
    ============================ */
@@ -1120,18 +1122,25 @@ main {
 }
 
 
+
+
 /* =========================
    RESPONSIVE DESIGN MOBILE
    ========================= */
 
-@media (max-width: 600px) {
+   /* =========================
+   RESPONSIVE DESIGN
+   MOBILE
+   ========================= */
+
+@media (max-width: 768px) {
 
     /* =========================
        GLOBAL
        ========================= */
 
     .container {
-        width: min(100% - 28px, var(--container-width));
+        width: min(100% - 32px, var(--container-width));
     }
 
     .section {
@@ -1144,20 +1153,19 @@ main {
        ========================= */
 
     .site-header {
-        padding-block: 18px;
+        padding-block: 10px;
     }
 
     .navbar {
-        flex-wrap: wrap;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
         gap: 15px;
+        padding: 8px 0;
     }
 
     .brand {
-        margin-right: auto;
-    }
-
-    .brand_name {
-        font-size: 21px;
+        flex-shrink: 0;
     }
 
     .brand_logo {
@@ -1165,24 +1173,19 @@ main {
         height: 30px;
     }
 
+    .brand_name {
+        font-size: 20px;
+        white-space: nowrap;
+    }
+
     .nav-menu {
-        order: 3;
-        width: 100%;
-
-        justify-content: center;
-
-        gap: 18px;
-        margin-left: 0;
-
-        flex-wrap: wrap;
+        display: none;
     }
 
-    .nav-menu_item {
+    .navbar .button {
+        flex-shrink: 0;
+        padding: 9px 14px;
         font-size: 13px;
-    }
-
-    .nav-menu .button--primary {
-        margin-left: 0;
     }
 
 
@@ -1191,28 +1194,32 @@ main {
        ========================= */
 
     .hero {
-        padding-block: 55px;
+        padding: 55px 0;
     }
 
-    .hero h1 {
-        font-size: clamp(36px, 11vw, 52px);
+    .hero_content {
+        width: 100%;
+        max-width: 600px;
+    }
+
+    .hero_title {
+        max-width: 100%;
+        font-size: clamp(34px, 10vw, 48px);
         line-height: 1.05;
     }
 
-    .hero p {
+    .hero_description {
+        max-width: 90%;
+        margin: 20px auto;
         font-size: 15px;
+        line-height: 1.6;
     }
 
-    .hero_actions {
-        flex-direction: column;
-        align-items: stretch;
-    }
-
-    .hero_actions .button {
+    .hero_form {
         width: 100%;
+        max-width: 500px;
+        margin-top: 25px;
     }
-
-    /* Hide decorative portraits on small screens */
 
     .hero_profile {
         display: none;
@@ -1223,10 +1230,22 @@ main {
        TRUSTED BRANDS
        ========================= */
 
+    .trusted-brands {
+        padding: 20px 0;
+    }
+
     .trusted-brands_list {
+        display: flex;
         flex-wrap: wrap;
         justify-content: center;
-        gap: 25px;
+        align-items: center;
+        gap: 20px 30px;
+        padding: 0;
+    }
+
+    .trusted-brands_item {
+        width: auto;
+        height: auto;
     }
 
 
@@ -1234,8 +1253,27 @@ main {
        BENEFITS
        ========================= */
 
+    .benefits {
+        padding: 60px 0;
+    }
+
+    #benefits-title {
+        max-width: 100%;
+        font-size: clamp(30px, 8vw, 40px);
+    }
+
+    .benefits-description {
+        max-width: 90%;
+        margin: 18px auto 30px;
+    }
+
     .benefits_grid {
         grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .benefit-card {
+        padding: 28px 24px;
     }
 
 
@@ -1244,15 +1282,46 @@ main {
        ========================= */
 
     .funding {
-        padding-block: 50px;
+        padding: 55px 0;
+    }
+
+    .funding .container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .funding_content {
+        max-width: 100%;
+        margin: 0;
+        order: 1;
+    }
+
+    .funding_content h2 {
+        max-width: 100%;
+        font-size: clamp(30px, 8vw, 40px);
+    }
+
+    .funding_content p {
+        max-width: 100%;
     }
 
     .funding_amounts {
-        grid-template-columns: 1fr;
+        order: 2;
+        width: 100%;
     }
 
     .funding-card {
-        padding: 30px;
+        width: 100%;
+        gap: 20px;
+        padding: 18px 20px;
+    }
+
+    .funding-card strong {
+        font-size: 28px;
+    }
+
+    .funding-card span {
+        font-size: 15px;
     }
 
 
@@ -1261,37 +1330,55 @@ main {
        ========================= */
 
     .resources {
-        padding: 55px 14px;
+        padding: 60px 0;
     }
 
     #resources-title {
         max-width: 100%;
-        font-size: 32px;
+        font-size: clamp(30px, 8vw, 40px);
     }
 
-    .resources > p {
-        max-width: 100%;
+    .resources-description {
+        max-width: 90%;
+        margin: 16px auto 30px;
     }
 
     .resources_grid {
         grid-template-columns: 1fr;
+        gap: 15px;
     }
 
     .resource-card {
-        padding: 30px;
+        padding: 30px 24px;
+    }
+
+    .resource-card p {
+        width: 100%;
+        max-width: none;
     }
 
 
     /* =========================
-       FOUNDER
+       FOUNDER MESSAGE
        ========================= */
 
     .founder-message {
-        padding-block: 55px;
+        padding-block: 60px;
+    }
+
+    .founder-message .section-header {
+        margin-bottom: 25px;
+    }
+
+    .founder-message h2 {
+        max-width: 100%;
+        font-size: clamp(28px, 8vw, 38px);
     }
 
     .video-wrapper {
+        width: 100%;
         min-height: 220px;
+        aspect-ratio: 16 / 10;
     }
 
 
@@ -1299,8 +1386,17 @@ main {
        TESTIMONIALS
        ========================= */
 
+    .testimonials {
+        padding-block: 60px;
+    }
+
     .testimonial-grid {
         grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .testimonial-card {
+        padding: 24px;
     }
 
 
@@ -1309,7 +1405,7 @@ main {
        ========================= */
 
     .faq {
-        padding-block: 55px;
+        padding-block: 60px;
     }
 
     .faq .section-header {
@@ -1317,7 +1413,12 @@ main {
     }
 
     .faq h2 {
-        font-size: 32px;
+        font-size: clamp(30px, 8vw, 40px);
+    }
+
+    .faq_layout {
+        grid-template-columns: 1fr;
+        gap: 35px;
     }
 
     .faq-item_question {
@@ -1325,8 +1426,19 @@ main {
         gap: 15px;
     }
 
+    .faq-item_question span:first-child {
+        padding: 0;
+        width: auto;
+    }
+
     .faq-contact {
-        padding: 25px;
+        width: 100%;
+        max-width: none;
+        padding: 28px 24px;
+    }
+
+    .faq-contact h3 {
+        max-width: 100%;
     }
 
 
@@ -1338,10 +1450,18 @@ main {
         padding-top: 50px;
     }
 
-    .site-footer_main {
+    .footer_main {
         grid-template-columns: 1fr;
         gap: 40px;
-        padding-bottom: 35px;
+        margin-bottom: 35px;
+    }
+
+    .footer_brand {
+        max-width: 100%;
+    }
+
+    .footer_brand p {
+        max-width: 100%;
     }
 
     .footer_nav {
@@ -1349,20 +1469,106 @@ main {
         gap: 30px;
     }
 
-    .footer_bottom .container {
+    .footer_nav h2 {
+        font-size: 16px;
+    }
+
+    .site-footer_bottom {
+        height: auto;
+        min-height: 140px;
+        padding-inline: 0;
+    }
+
+    .footer_bottom {
+        display: flex;
         flex-direction: column;
         align-items: flex-start;
         gap: 15px;
+        margin-top: 0;
+        padding-block: 20px;
     }
 
     .footer_legal {
+        display: flex;
         flex-wrap: wrap;
         gap: 15px;
     }
 
-    .footer_watermark {
-        font-size: 25vw;
+    .footer_bottom .copyright {
+        padding-right: 0;
+        white-space: normal;
     }
 
+    .footer_watermark {
+        font-size: 25vw;
+        bottom: -10px;
+    }
 }
-   
+
+
+/* =========================
+   SMALL MOBILE
+   ========================= */
+
+@media (max-width: 480px) {
+
+    .container {
+        width: min(100% - 24px, var(--container-width));
+    }
+
+    .hero {
+        padding-block: 45px;
+    }
+
+    .hero_title {
+        font-size: clamp(32px, 10vw, 42px);
+    }
+
+    .hero_description {
+        max-width: 100%;
+    }
+
+    .hero_form {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 6px;
+    }
+
+    .hero_form input {
+        width: 100%;
+        padding: 12px;
+    }
+
+    .hero_form .button {
+        width: 100%;
+    }
+
+    .benefit-card,
+    .funding-card,
+    .resource-card,
+    .testimonial-card {
+        padding: 24px 20px;
+    }
+
+    .funding-card {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    .funding-card--active {
+        align-items: flex-start;
+    }
+
+    .funding-card--active span {
+        margin: 0;
+    }
+
+    .faq-contact {
+        padding: 24px 20px;
+    }
+
+    .footer_nav {
+        gap: 20px;
+    }
+}
